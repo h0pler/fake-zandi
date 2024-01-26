@@ -9,7 +9,6 @@ def print_desc():
     print("1. git init")
     print("2. git remote add origin your_repo_addr")
     print("3. fake_zandi")
-    print("4. exit")
     
 if not os.path.isfile(file):    
     open("file.txt","w")
@@ -20,11 +19,9 @@ while True:
     choice = int(input())
     if choice == 1:
         cmd.git_init()
-        print("Success!")
     elif choice == 2:
         your_repo_addr = input("Input your repo addr :")
         cmd.command(f"git remote add origin {your_repo_addr}")
-        print("Success!")
     elif choice == 3:
         day = input("since [?] days ago ... ")
         while cnt <= int(day):
@@ -35,7 +32,6 @@ while True:
             cmd.git_commit(cnt)
             cnt += 1
         cmd.git_push()
-    if choice == 4:
-        exit()
+        break
     else:
         print("Not found :(")
