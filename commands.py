@@ -8,7 +8,7 @@ def clear():
     os.system("cls")
 
 def git_init():
-    if not os.path.isfile(".git"):
+    if os.path.isdir(".git"):
         print(".git exist !!")
     else:
         print("Create git init")
@@ -16,10 +16,10 @@ def git_init():
         clear()
 
 def git_add():
-    command("git add .")
+    command("git add file.txt")
 
 def git_commit(date):
-    command(f"git commit -m \"fake_zandi\" --date \"{date} day ago\"")
+    command(f"git commit -m \"hehehe I am chogosu\" --date \"{date} day ago\"")
 
 def git_push():
-    command("git push origin master")
+    command("git push -f origin master")
