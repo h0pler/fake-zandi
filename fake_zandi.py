@@ -9,6 +9,7 @@ def print_desc():
     print("1. git init")
     print("2. git remote add origin your_repo_addr")
     print("3. fake_zandi")
+    print("4. exit")
     
 if not os.path.isfile(file):    
     open("file.txt","w")
@@ -32,9 +33,9 @@ while True:
             cmd.git_init()
             cmd.git_add()
             cmd.git_commit(cnt)
-            cmd.git_push()
             cnt += 1
+        cmd.git_push()
+    if choice == 4:
+        exit()
     else:
         print("Not found :(")
-
-file.close()
