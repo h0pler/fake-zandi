@@ -1,14 +1,8 @@
 import os
+import commands as cmd
 
 cnt = 1
-file = "file.txt"
-
-def command(command):
-    print(f"Command : {command}")
-    os.system(command)
-    
-def clear():
-    os.system("cls")
+file = "file.txt" 
 
 def print_desc():
     print("*" * 10+"manual"+"*" * 10)
@@ -24,26 +18,21 @@ print_desc()
 while True:
     choice = int(input())
     if choice == 1:
-        command("git init")
+        cmd.git_init()
         print("Create git init !!")
     elif choice == 2:
         your_repo_addr = input("Input your repo addr :")
-        command(f"git remote add origin {your_repo_addr}")
+        cmd.command(f"git remote add origin {your_repo_addr}")
         print("Success remote repo_addr")
     elif choice == 3:
         day = input("1 ~ day ago : ")
         while cnt <= int(day):
             file = open("file.txt", "a")
             file.write("%d\n" % (cnt))
-            if not os.path.isfile(".git"):
-                print(".git exist !!")
-            else:
-                print("Create git init")
-                command("git init")
-                clear()
-            command("git add .")
-            command(f"git commit -m \"fake_zandi\" --date \"{cnt} day ago\"")
-            command("git push origin master")
+            cmd.git_init()
+            cmd.git_add()
+            cmd.git_commit(cnt)
+            cmd.git_push()
             cnt += 1
     else:
         print("Not found :(")
