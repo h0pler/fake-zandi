@@ -8,7 +8,7 @@ def clear():
     os.system("cls")
 
 def git_init():
-    if not os.path.isfile(".git"):
+    if os.path.isdir(".git"):
         print(".git exist !!")
     else:
         print("Create git init")
