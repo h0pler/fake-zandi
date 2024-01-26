@@ -19,7 +19,7 @@ def git_add():
     command("git add .")
 
 def git_commit(date):
-    command(f"git commit -m \"fake_zandi\" --date \"{date} day ago\"")
+    command(f"git commit -m \'hehehe I am chogosu\' --date \"{date} day ago\"")
 
 def git_push():
     command("git push origin master")

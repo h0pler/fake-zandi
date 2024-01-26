@@ -1,7 +1,7 @@
 import os
 import commands as cmd
 
-cnt = 1
+cnt = 0
 file = "file.txt" 
 
 def print_desc():
@@ -19,13 +19,13 @@ while True:
     choice = int(input())
     if choice == 1:
         cmd.git_init()
-        print("Create git init !!")
+        print("Success!")
     elif choice == 2:
         your_repo_addr = input("Input your repo addr :")
         cmd.command(f"git remote add origin {your_repo_addr}")
-        print("Success remote repo_addr")
+        print("Success!")
     elif choice == 3:
-        day = input("1 ~ day ago : ")
+        day = input("since [?] days ago ... ")
         while cnt <= int(day):
             file = open("file.txt", "a")
             file.write("%d\n" % (cnt))
