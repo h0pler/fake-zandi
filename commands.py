@@ -21,5 +21,5 @@ def git_add():
 def git_commit(date):
     command(f"git commit -m \"hehehe I am chogosu\" --date \"{date} day ago\"")
 
-def git_push():
-    command("git push -f origin master")
+def git_push(branchname):
+    command(f"git push -f origin {branchname}")
