@@ -19,7 +19,7 @@ while True:
     print_desc()
     choice = int(input())
     if choice == 1:
-        cmd.command("rmdir /s /q .git")
+        cmd.command("rm -rf .git")
     elif choice == 2:
         cmd.git_init()
     elif choice == 3:
