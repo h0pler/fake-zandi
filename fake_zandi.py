@@ -36,7 +36,7 @@ while True:
             cmd.git_add()
             cmd.git_commit(cnt)
             cnt += 1
-        cmd.git_push()
+        cmd.git_push(your_branch_name)
         break
     else:
         print("Not found :(")
