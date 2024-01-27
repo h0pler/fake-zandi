@@ -14,6 +14,8 @@ def print_desc():
     
 if not os.path.isfile(file):    
     open("file.txt","w")
+    
+your_branch_name="main"
 
 while True:
     print_desc()
