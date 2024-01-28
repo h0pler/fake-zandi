@@ -11,6 +11,7 @@ def git_init():
         return 1
     else:
         command("git init")
+        command("git branch -M main")
         return 0
 
 
@@ -22,5 +23,5 @@ def git_commit(date):
     command(f'git commit -m "hehehe I am chogosu" --date "{date} day ago"')
 
 
-def git_push(branchname):
-    command(f"git push -f origin {branchname}")
+def git_push():
+    command(f"git push -f origin main")

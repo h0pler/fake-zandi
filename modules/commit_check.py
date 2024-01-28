@@ -18,6 +18,20 @@ def get_username_from_token():
         return None
 
 
+def get_useremail_from_token():
+    url = "https://api.github.com/user/emails"
+    headers = {"Authorization": f"token {github_token}"}
+    response = requests.get(url, headers=headers)
+    if response.status_code == 200:
+        emails = response.json()
+        for email in emails:
+            if email["primary"]:
+                return email["email"]
+        return None
+    else:
+        return None
+
+
 def check_commit_dates(n, username):
     today = datetime.date.today()
     commit_dates = []
