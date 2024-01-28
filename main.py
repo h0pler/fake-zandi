@@ -12,6 +12,7 @@ username = commit_check.get_username_from_token()
 print(username)
 useremail = commit_check.get_useremail_from_token()
 print(useremail)
+usertoken=os.getenv("GITHUB_TOKEN")
 
 if not username:
     print("Check the example.env file")
@@ -26,6 +27,7 @@ else:
         print("Initialized successfully")
         cmd.command(f"git config --local user.name {username}")
         cmd.command(f"git config --local user.email {useremail}")
+        cmd.command(f"git config --local user.password {usertoken}")
         your_repo_addr = input("Input your repo addr :")
         cmd.command(f"git remote add origin {your_repo_addr}")
         day = input("Check commits for the last [?] days ... :  ")

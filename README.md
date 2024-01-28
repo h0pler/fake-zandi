@@ -4,7 +4,8 @@
 
 ## 사용법
 1. `git clone https://github.com/h0pler/fake-zandi.git`
-
+2. clone된 폴더에서 .git 폴더와 .gitignore을 삭제합니다.
+3. main.py를 실행합니다.
 <br><br><br><br>
 ---
 *부산소마고 강지원, 선린인고 김우진 토이프젝*

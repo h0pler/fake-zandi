@@ -5,7 +5,6 @@ from dotenv import load_dotenv
 
 load_dotenv()
 github_token = os.getenv("GITHUB_TOKEN")
-print(github_token)
 
 
 def get_username_from_token():
