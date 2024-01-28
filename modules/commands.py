@@ -8,10 +8,10 @@ def command(command):
 
 def git_init():
     if os.path.isdir(".git"):
-        print(".git exist !!")
+        return 1
     else:
-        print("Create git init")
         command("git init")
+        return 0
 
 
 def git_add():

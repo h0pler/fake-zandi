@@ -62,12 +62,3 @@ def check_commit_dates(n, username):
         if date not in commit_dates
     ]
     return missing_days
-
-
-username = get_username_from_token()
-print(username)
-if username:
-    missing_days = check_commit_dates(7, username)
-    print(missing_days)
-else:
-    print("사용자 이름을 찾을 수 없습니다.")
