@@ -2,20 +2,22 @@ import os
 import commands as cmd
 
 cnt = 0
-file = "file.txt" 
+file = "file.txt"
+
 
 def print_desc():
-    print("*" * 10+"manual"+"*" * 10)
+    print("*" * 10 + "manual" + "*" * 10)
     print("1. remove existing .git folder")
     print("2. git init")
     print("3. your repo ? ")
     print("4. your branch ? ")
     print("5. let's go !!")
-    
-if not os.path.isfile(file):    
-    open("file.txt","w")
-    
-your_branch_name="main"
+
+
+if not os.path.isfile(file):
+    open("file.txt", "w")
+
+your_branch_name = "main"
 
 while True:
     print_desc()
