@@ -18,6 +18,20 @@ def get_username_from_token():
         return None
 
 
+def get_useremail_from_token():
+    url = "https://api.github.com/user/emails"
+    headers = {"Authorization": f"token {github_token}"}
+    response = requests.get(url, headers=headers)
+    if response.status_code == 200:
+        emails = response.json()
+        for email in emails:
+            if email["primary"]:
+                return email["email"]
+        return None
+    else:
+        return None
+
+
 def check_commit_dates(n, username):
     today = datetime.date.today()
     commit_dates = []
@@ -62,12 +76,3 @@ def check_commit_dates(n, username):
         if date not in commit_dates
     ]
     return missing_days
-
-
-username = get_username_from_token()
-print(username)
-if username:
-    missing_days = check_commit_dates(7, username)
-    print(missing_days)
-else:
-    print("사용자 이름을 찾을 수 없습니다.")
