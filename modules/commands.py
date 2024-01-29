@@ -1,4 +1,5 @@
 import os
+import platform
 
 
 def command(command):
@@ -25,3 +26,10 @@ def git_commit(date):
 
 def git_push():
     command(f"git push -f origin main")
+
+
+def delete_dotgit():
+    if platform.system() == "Windows":
+        command("rmdir /s /q .git")
+    else:
+        command("rm -rf .git")
