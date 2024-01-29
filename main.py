@@ -9,29 +9,23 @@ if not os.path.isfile(file):
     open("file.txt", "w")
 
 username = commit_check.get_username_from_token()
-print(username)
 useremail = commit_check.get_useremail_from_token()
-print(useremail)
 usertoken=os.getenv("GITHUB_TOKEN")
-print(usertoken)
 repoaddr=os.getenv("REPO_ADDR")
+print(f"username : {username}\nuseremail : {useremail}\nusertoken : {usertoken}\nrepoaddr : {repoaddr}")
 
-if not username:
-    print("Check the example.env file")
-    print("Set the GITHUB_TOKEN variable in the .env file.")
+if not username or not useremail or not usertoken or not repoaddr:
+    print("Check the example.env file.")
+    print("Set the environment variables.")
     exit(1)
 else:
     cmd.delete_dotgit()
-    print("Initialized successfully")
-    cmd.command(f"git config --local user.name {username}")
-    cmd.command(f"git config --local user.email {useremail}")
-    cmd.command(f"git config --local user.password {usertoken}")
-    your_repo_addr = input("Input your repo addr :")
-    cmd.command(f"git remote add origin {your_repo_addr}")
+    cmd.git_init()
+    cmd.git_config(username, useremail, usertoken, repoaddr)
     day = input("Check commits for the last [?] days ... :  ")
     missing_days = commit_check.check_commit_dates(int(day), username)
     for i in missing_days:
-        randnum = random.randint(1, 10)
+        randnum = random.randint(1, 5)
         for j in range(randnum):
             file = open("file.txt", "a")
             file.write("%d\n" % (i + j))
