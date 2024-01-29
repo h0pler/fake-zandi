@@ -6,3 +6,5 @@ __pycache__/
 venv/
 
 test_dir/
+
+test.py
