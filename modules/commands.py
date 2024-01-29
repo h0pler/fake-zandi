@@ -33,4 +33,5 @@ def git_config(username, useremail, usertoken, repoaddr):
     command(f"git config --local user.name {username}")
     command(f"git config --local user.email {useremail}")
     command(f"git config --local user.password {usertoken}")
+    command(f"git config --local credential.helper cache")
     command(f"git remote add origin {repoaddr}")
