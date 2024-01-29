@@ -8,12 +8,7 @@ def command(command):
 
 
 def git_init():
-    if os.path.isdir(".git"):
-        return 1
-    else:
-        command("git init")
-        command("git branch -M main")
-        return 0
+    command("git init")
 
 
 def git_add():
@@ -33,3 +28,9 @@ def delete_dotgit():
         command("rmdir /s /q .git")
     else:
         command("rm -rf .git")
+
+def git_config(username, useremail, usertoken, repoaddr):
+    command(f"git config --local user.name {username}")
+    command(f"git config --local user.email {useremail}")
+    command(f"git config --local user.password {usertoken}")
+    command(f"git remote add origin {repoaddr}")
